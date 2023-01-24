@@ -1,4 +1,4 @@
-package com.amirreza.quizeapplication
+package com.amirreza.quizapplication
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle

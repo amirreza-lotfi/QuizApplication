@@ -1,4 +1,4 @@
-package com.amirreza.quizeapplication
+package com.amirreza.quizapplication
 
 import androidx.test.platform.app.InstrumentationRegistry
 import androidx.test.ext.junit.runners.AndroidJUnit4

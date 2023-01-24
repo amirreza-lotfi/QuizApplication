@@ -1,6 +1,6 @@
-package com.amirreza.quizeapplication.feature_quize.data.source;
+package com.amirreza.quizapplication.feature_quiz.data.source;
 
-import com.amirreza.quizeapplication.feature_quize.domain.model.Quiz;
+import com.amirreza.quizapplication.feature_quiz.domain.model.Quiz;
 
 import java.util.List;
 

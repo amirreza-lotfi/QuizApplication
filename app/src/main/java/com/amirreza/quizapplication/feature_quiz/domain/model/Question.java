@@ -1,4 +1,4 @@
-package com.amirreza.quizeapplication.feature_quize.domain.model;
+package com.amirreza.quizapplication.feature_quiz.domain.model;
 
 import java.util.List;
 

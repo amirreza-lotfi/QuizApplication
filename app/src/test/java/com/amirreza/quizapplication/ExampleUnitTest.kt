@@ -1,4 +1,4 @@
-package com.amirreza.quizeapplication
+package com.amirreza.quizapplication
 
 import org.junit.Test
 
