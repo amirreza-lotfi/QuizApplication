@@ -6,6 +6,6 @@ import io.reactivex.Completable;
 import io.reactivex.Single;
 
 public interface AuthenticationRemoteDataSource {
-    public Single<TokenResponse> login(String username, String password);
-    public Single<String> signUp(String username, String password);
+    Single<TokenResponse> login(String username, String password);
+    Single<String> signUp(String username, String password);
 }

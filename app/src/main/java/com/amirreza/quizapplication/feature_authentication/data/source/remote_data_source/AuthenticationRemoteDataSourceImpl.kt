@@ -5,11 +5,11 @@ import com.amirreza.quizapplication.util.ApiService
 import io.reactivex.Single
 
 class AuthenticationRemoteDataSourceImpl(private val apiService: ApiService):AuthenticationRemoteDataSource {
-    override fun login(username: String?, password: String?): Single<TokenResponse> {
-        TODO("Not yet implemented")
+    override fun login(username: String, password: String): Single<TokenResponse> {
+        return apiService.login(username,password)
     }
 
-    override fun signUp(username: String?, password: String?): Single<String> {
-        TODO("Not yet implemented")
+    override fun signUp(username: String, password: String): Single<String> {
+        return apiService.signUp(username,password)
     }
 }
