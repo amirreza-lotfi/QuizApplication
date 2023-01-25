@@ -19,6 +19,7 @@ class AuthenticationLocalDataSourceImpl(private val sharedPreferences: SharedPre
     }
 
     override fun saveUserName(username: String) {
+        TokenHolder.setUsername(username)
         sharedPreferences.edit().apply{
             putString("username",username)
         }.apply()

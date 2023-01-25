@@ -3,10 +3,10 @@ package com.amirreza.quizapplication.feature_quiz.presentation.fragment_quiz;
 import androidx.lifecycle.LiveData;
 import androidx.lifecycle.MutableLiveData;
 
-import com.amirreza.quizapplication.feature_quiz.domain.model.Answer;
-import com.amirreza.quizapplication.feature_quiz.domain.model.Question;
-import com.amirreza.quizapplication.feature_quiz.domain.model.Quiz;
-import com.amirreza.quizapplication.feature_quiz.domain.model.QuizResult;
+import com.amirreza.quizapplication.feature_authentication.data.repository.model.Answer;
+import com.amirreza.quizapplication.feature_authentication.data.repository.model.Question;
+import com.amirreza.quizapplication.feature_authentication.data.repository.model.Quiz;
+import com.amirreza.quizapplication.feature_authentication.data.repository.model.QuizResult;
 import com.amirreza.quizapplication.feature_quiz.domain.use_case.QuizUseCase;
 import com.amirreza.quizapplication.util.base.QuizBaseViewModel;
 
