@@ -1,11 +1,10 @@
 package com.amirreza.quizapplication.feature_quiz.data.source;
 
-import com.amirreza.quizapplication.feature_quiz.domain.model.Awnser;
+import com.amirreza.quizapplication.feature_quiz.domain.model.Answer;
 import com.amirreza.quizapplication.feature_quiz.domain.model.Question;
 import com.amirreza.quizapplication.feature_quiz.domain.model.Quiz;
 import com.amirreza.quizapplication.feature_quiz.domain.model.QuizResult;
 
-import java.lang.reflect.Array;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -62,17 +61,19 @@ public class QuizRemoteDataSource implements QuizDataSourceI {
     }
 
     @Override
-    public Single<QuizResult> getResult(Awnser[] awnsers) {
+    public Single<QuizResult> getResult(Answer[] answers) {
         int wrong = 0;
         int correct = 0;
 
-        for (Awnser awnser : awnsers){
-            if(awnser.getAwnser().equals("Gabriel Garcia Marquez"))
+        for (Answer answer : answers){
+            if(answer.getAnswer().equals("Gabriel Garcia Marquez"))
                 correct+=1;
             else
                 wrong+=1;
         }
 
         return Single.just(new QuizResult(wrong, correct));
+
+        //Todo save answer and username in database
     }
 }

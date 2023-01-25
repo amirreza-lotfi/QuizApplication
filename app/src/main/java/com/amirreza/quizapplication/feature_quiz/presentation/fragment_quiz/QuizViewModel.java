@@ -2,23 +2,18 @@ package com.amirreza.quizapplication.feature_quiz.presentation.fragment_quiz;
 
 import androidx.lifecycle.LiveData;
 import androidx.lifecycle.MutableLiveData;
-import androidx.lifecycle.ViewModel;
 
-import com.amirreza.quizapplication.feature_quiz.domain.model.Awnser;
+import com.amirreza.quizapplication.feature_quiz.domain.model.Answer;
 import com.amirreza.quizapplication.feature_quiz.domain.model.Question;
 import com.amirreza.quizapplication.feature_quiz.domain.model.Quiz;
 import com.amirreza.quizapplication.feature_quiz.domain.model.QuizResult;
 import com.amirreza.quizapplication.feature_quiz.domain.use_case.QuizUseCase;
 import com.amirreza.quizapplication.util.base.QuizBaseViewModel;
 
-import org.jetbrains.annotations.Nullable;
-
 import io.reactivex.SingleObserver;
 import io.reactivex.android.schedulers.AndroidSchedulers;
 import io.reactivex.disposables.Disposable;
 import io.reactivex.schedulers.Schedulers;
-import kotlinx.coroutines.flow.MutableSharedFlow;
-import kotlinx.coroutines.flow.SharedFlow;
 
 public class QuizViewModel extends QuizBaseViewModel {
 
@@ -42,7 +37,8 @@ public class QuizViewModel extends QuizBaseViewModel {
     private final MutableLiveData<QuizResult> _navigateToResultFragment = new MutableLiveData<>();
     public LiveData<QuizResult> navigateToResultFragment = _navigateToResultFragment;
 
-    private final MutableLiveData<Awnser[]> _awnsers = new MutableLiveData<>();
+    private final MutableLiveData<Answer[]> _awnsers = new MutableLiveData<>();
+
 
     public QuizViewModel(QuizUseCase quizUseCase) {
         this.quizUseCase = quizUseCase;
@@ -60,7 +56,7 @@ public class QuizViewModel extends QuizBaseViewModel {
                     public void onSuccess(Quiz quiz) {
                         _quizLiveData.setValue(quiz);
                         _currnetquestion.setValue(quiz.getQuestionAt(_indexOfQuestion.getValue()));
-                        _awnsers.setValue(new Awnser[quiz.getQuestionSize()]);
+                        _awnsers.setValue(new Answer[quiz.getQuestionSize()]);
                         showProgressBar(false);
                     }
 
@@ -81,7 +77,8 @@ public class QuizViewModel extends QuizBaseViewModel {
     }
 
     private void saveAnswer() {
-        _awnsers.getValue()[_indexOfQuestion.getValue()] = new Awnser(_currnetquestion.getValue().getQuestionId(),_selectedAnswer.getValue());
+
+        _awnsers.getValue()[_indexOfQuestion.getValue()] = new Answer(_currnetquestion.getValue().getQuestionId(),_selectedAnswer.getValue());
     }
 
     private void showNextQuestion() {

@@ -6,6 +6,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import com.amirreza.quizeapplication.R
+import com.amirreza.quizeapplication.databinding.FragmentResultBinding
 
 
 class ResultFragment : Fragment() {

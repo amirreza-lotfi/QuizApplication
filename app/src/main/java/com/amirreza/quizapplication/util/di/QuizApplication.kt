@@ -5,6 +5,7 @@ import com.amirreza.quizapplication.feature_quiz.data.repository.QuizRepositoryI
 import com.amirreza.quizapplication.feature_quiz.data.source.QuizDataSourceI
 import com.amirreza.quizapplication.feature_quiz.data.source.QuizRemoteDataSource
 import com.amirreza.quizapplication.feature_quiz.domain.repository.QuizRepository
+import com.amirreza.quizapplication.feature_quiz.domain.use_case.GetQuizResult
 import com.amirreza.quizapplication.feature_quiz.domain.use_case.GetQuizzes
 import com.amirreza.quizapplication.feature_quiz.domain.use_case.QuizUseCase
 import com.amirreza.quizapplication.feature_quiz.presentation.fragment_quiz.QuizViewModel
@@ -25,7 +26,7 @@ class QuizApplication : Application(){
                 QuizRepositoryImpl(get())
             }
             single {
-                QuizUseCase(GetQuizzes(get()))
+                QuizUseCase(GetQuizzes(get()), GetQuizResult(get()))
             }
         }
 

@@ -1,7 +1,7 @@
 package com.amirreza.quizapplication.feature_quiz.data.repository;
 
 import com.amirreza.quizapplication.feature_quiz.data.source.QuizDataSourceI;
-import com.amirreza.quizapplication.feature_quiz.domain.model.Awnser;
+import com.amirreza.quizapplication.feature_quiz.domain.model.Answer;
 import com.amirreza.quizapplication.feature_quiz.domain.model.Quiz;
 import com.amirreza.quizapplication.feature_quiz.domain.model.QuizResult;
 import com.amirreza.quizapplication.feature_quiz.domain.repository.QuizRepository;
@@ -22,7 +22,7 @@ public class QuizRepositoryImpl implements QuizRepository {
     }
 
     @Override
-    public Single<QuizResult> getResult(Awnser[] answers) {
+    public Single<QuizResult> getResult(Answer[] answers) {
         return quizDataSource.getResult(answers);
     }
 }
