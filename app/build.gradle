@@ -59,4 +59,12 @@ dependencies {
     implementation "io.insert-koin:koin-android-compat:$koin_version"
     implementation "io.insert-koin:koin-androidx-workmanager:$koin_version"
     implementation "io.insert-koin:koin-androidx-navigation:$koin_version"
+
+    // Lottie dependency
+    def lottieVersion = "3.4.0"
+    implementation "com.airbnb.android:lottie:$lottieVersion"
+
+
+
+
 }
