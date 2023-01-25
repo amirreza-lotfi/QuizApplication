@@ -5,6 +5,8 @@ import android.view.LayoutInflater
 import android.view.ViewGroup
 import android.os.Bundle
 import android.view.View
+import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.RecyclerView
 import com.amirreza.quizeapplication.databinding.FragmentHistoryBinding
 import org.koin.android.ext.android.inject
 
@@ -16,7 +18,7 @@ class HistoryFragment : QuizBaseFragment() {
         inflater: LayoutInflater,
         container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
+    ): View {
         binding = FragmentHistoryBinding.inflate(inflater, container, false)
         return binding.root
     }
@@ -24,8 +26,12 @@ class HistoryFragment : QuizBaseFragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
+        val layoutManager = LinearLayoutManager(requireContext(), RecyclerView.HORIZONTAL,false)
+        val recyclerView = binding.quizHistoryRecyclerView
+        recyclerView.layoutManager = layoutManager
+
         viewModel.examHistory.observe(viewLifecycleOwner){
-            //todo show data
+            recyclerView.adapter = QuizHistoryAdapter(it)
         }
     }
 }

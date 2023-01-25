@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:paddingVertical="8dp"
+    android:paddingHorizontal="16dp"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="16dp"
+        android:background="@drawable/background_quiz_result">
+        <TextView
+            android:id="@+id/score"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="20dp"
+            android:text="Score : "/>
+        <TextView
+            android:id="@+id/score_value"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="20dp"
+            android:layout_marginEnd="64dp"
+            tools:text="70%" />
+        <TextView
+            android:id="@+id/correct_value"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="20dp"
+            tools:text="6" />
+        <ImageView
+            android:id="@+id/correct_icon"
+            android:layout_width="27dp"
+            android:layout_height="27dp"
+            android:layout_marginEnd="32dp"
+            app:srcCompat="@drawable/ic_correct" />
+        <TextView
+            android:id="@+id/wrong_value"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="20dp"
+            tools:text="6" />
+        <ImageView
+            android:id="@+id/wrong_icon"
+            android:layout_width="27dp"
+            android:layout_height="27dp"
+            app:srcCompat="@drawable/ic_wong" />
+    </LinearLayout>
+
+
+
+</FrameLayout>
