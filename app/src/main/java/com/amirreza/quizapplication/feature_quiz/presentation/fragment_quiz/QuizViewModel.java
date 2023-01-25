@@ -7,7 +7,9 @@ import androidx.lifecycle.ViewModel;
 import com.amirreza.quizapplication.feature_quiz.domain.model.Awnser;
 import com.amirreza.quizapplication.feature_quiz.domain.model.Question;
 import com.amirreza.quizapplication.feature_quiz.domain.model.Quiz;
+import com.amirreza.quizapplication.feature_quiz.domain.model.QuizResult;
 import com.amirreza.quizapplication.feature_quiz.domain.use_case.QuizUseCase;
+import com.amirreza.quizapplication.util.base.QuizBaseViewModel;
 
 import org.jetbrains.annotations.Nullable;
 
@@ -15,8 +17,10 @@ import io.reactivex.SingleObserver;
 import io.reactivex.android.schedulers.AndroidSchedulers;
 import io.reactivex.disposables.Disposable;
 import io.reactivex.schedulers.Schedulers;
+import kotlinx.coroutines.flow.MutableSharedFlow;
+import kotlinx.coroutines.flow.SharedFlow;
 
-public class QuizViewModel extends ViewModel {
+public class QuizViewModel extends QuizBaseViewModel {
 
     private final QuizUseCase quizUseCase;
 
@@ -35,10 +39,14 @@ public class QuizViewModel extends ViewModel {
     private final MutableLiveData<String> _selectedAnswer = new MutableLiveData<>();
     public LiveData<String> selectedAnswer = _selectedAnswer;
 
+    private final MutableLiveData<QuizResult> _navigateToResultFragment = new MutableLiveData<>();
+    public LiveData<QuizResult> navigateToResultFragment = _navigateToResultFragment;
+
     private final MutableLiveData<Awnser[]> _awnsers = new MutableLiveData<>();
 
     public QuizViewModel(QuizUseCase quizUseCase) {
         this.quizUseCase = quizUseCase;
+        showProgressBar(true);
         quizUseCase.getGetQuizUseCase().getValue()
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
@@ -53,6 +61,7 @@ public class QuizViewModel extends ViewModel {
                         _quizLiveData.setValue(quiz);
                         _currnetquestion.setValue(quiz.getQuestionAt(_indexOfQuestion.getValue()));
                         _awnsers.setValue(new Awnser[quiz.getQuestionSize()]);
+                        showProgressBar(false);
                     }
 
                     @Override
@@ -75,7 +84,6 @@ public class QuizViewModel extends ViewModel {
         _awnsers.getValue()[_indexOfQuestion.getValue()] = new Awnser(_currnetquestion.getValue().getQuestionId(),_selectedAnswer.getValue());
     }
 
-
     private void showNextQuestion() {
         _indexOfQuestion.setValue(_indexOfQuestion.getValue() + 1);
         _currnetquestion.setValue(_quizLiveData.getValue().getQuestionAt(_indexOfQuestion.getValue()));
@@ -93,8 +101,29 @@ public class QuizViewModel extends ViewModel {
             _actionButtonText.setValue("Next");
         }
     }
-    private void finishExam() {
 
+    private void finishExam() {
+        showProgressBar(true);
+        quizUseCase.getGetQuizResult().getResult(_awnsers.getValue())
+                .subscribeOn(Schedulers.io())
+                .observeOn(AndroidSchedulers.mainThread())
+                .subscribe(new SingleObserver<QuizResult>() {
+                    @Override
+                    public void onSubscribe(Disposable d) {
+
+                    }
+
+                    @Override
+                    public void onSuccess(QuizResult quizResult) {
+                        _navigateToResultFragment.setValue(quizResult);
+                        showProgressBar(false);
+                    }
+
+                    @Override
+                    public void onError(Throwable e) {
+
+                    }
+                });
     }
 
     public void onAnswerSelected(String text) {

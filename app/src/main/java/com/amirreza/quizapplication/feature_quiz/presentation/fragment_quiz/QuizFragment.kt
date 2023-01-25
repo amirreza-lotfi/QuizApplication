@@ -6,12 +6,15 @@ import android.view.ViewGroup
 import android.os.Bundle
 import android.view.View
 import androidx.fragment.app.Fragment
+import androidx.navigation.fragment.findNavController
+import com.amirreza.quizapplication.util.base.QuizBaseFragment
 import com.amirreza.quizeapplication.R
 import com.amirreza.quizeapplication.databinding.FragmentQuizBinding
 
-class QuizFragment : Fragment() {
+class QuizFragment : QuizBaseFragment() {
     private lateinit var binding: FragmentQuizBinding
     private val quizViewModel:QuizViewModel by inject()
+
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
@@ -33,6 +36,15 @@ class QuizFragment : Fragment() {
             }
         }
 
+        quizViewModel.navigateToResultFragment.observe(viewLifecycleOwner){
+            it?.let{
+                val bundle = Bundle()
+                bundle.putParcelable("quizResult", it)
+                findNavController().navigate(R.id.action_quizFragment_to_resultFragment,bundle)
+            }
+        }
+
+
         quizViewModel.actionButtonText.observe(viewLifecycleOwner){
             binding.actionButton.text = it
             clearRadioButton()
@@ -51,9 +63,9 @@ class QuizFragment : Fragment() {
             quizViewModel.onAnswerSelected(answer.toString())
         }
 
-
         binding.actionButton.setOnClickListener {
             quizViewModel.onActionButtonClicked();
+
         }
     }
 
