@@ -15,10 +15,10 @@ class MainActivity : AppCompatActivity() {
         val navController = navHostFragment.navController
         val hasUserLoggedIn = TokenHolder.isTokenAvailable()
 
-        if(hasUserLoggedIn){
+//        if(hasUserLoggedIn){
             navController.navigate(R.id.quizFragment)
-        }else{
-            navController.navigate(R.id.loginFragment)
-        }
+//        }else{
+//            navController.navigate(R.id.loginFragment)
+//        }
     }
 }

@@ -5,9 +5,9 @@ import com.amirreza.quizapplication.feature_quiz.domain.repository.QuizRepositor
 import io.reactivex.Single
 
 data class GetQuizzes(
-    val quizRepository: QuizRepository
+    private val quizRepository: QuizRepository
 ){
-    operator fun invoke(): Single<Quiz> {
+    fun getValue(): Single<Quiz> {
         return quizRepository.quizzes;
     }
 }

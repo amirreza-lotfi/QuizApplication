@@ -3,15 +3,19 @@ package com.amirreza.quizapplication.feature_quiz.domain.model;
 import java.util.List;
 
 public class Question {
+
+
+    private int questionId;
     private String questionText;
     private List<String> options;
 
     public Question() {
     }
 
-    public Question(String questionText, List<String> options) {
+    public Question(int id, String questionText, List<String> options) {
         this.questionText = questionText;
         this.options = options;
+        this.questionId = id;
     }
 
     public String getQuestionText() {
@@ -28,5 +32,9 @@ public class Question {
 
     public void setOptions(List<String> options) {
         this.options = options;
+    }
+
+    public int getQuestionId() {
+        return questionId;
     }
 }

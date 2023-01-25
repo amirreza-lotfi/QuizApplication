@@ -8,25 +8,36 @@ import com.amirreza.quizapplication.feature_quiz.domain.repository.QuizRepositor
 import com.amirreza.quizapplication.feature_quiz.domain.use_case.GetQuizzes
 import com.amirreza.quizapplication.feature_quiz.domain.use_case.QuizUseCase
 import com.amirreza.quizapplication.feature_quiz.presentation.fragment_quiz.QuizViewModel
+import org.koin.android.ext.koin.androidContext
 import org.koin.androidx.viewmodel.dsl.viewModel
 import org.koin.dsl.module
-
+import org.koin.android.ext.koin.androidContext
+import org.koin.androidx.viewmodel.dsl.viewModel
+import org.koin.core.context.GlobalContext.startKoin
 class QuizApplication : Application(){
-    val module = module {
-        single<QuizDataSourceI>{
-            QuizRemoteDataSource()
+    override fun onCreate() {
+        super.onCreate()
+        val module = module {
+            single<QuizDataSourceI>{
+                QuizRemoteDataSource()
+            }
+            single<QuizRepository> {
+                QuizRepositoryImpl(get())
+            }
+            single {
+                QuizUseCase(GetQuizzes(get()))
+            }
         }
-        single<QuizRepository> {
-            QuizRepositoryImpl(get())
+
+        val viewModelModule = module{
+            viewModel {
+                QuizViewModel(get());
+            }
         }
-        single {
-            QuizUseCase(GetQuizzes(get()))
+        startKoin {
+            androidContext(this@QuizApplication)
+            modules(listOf(module, viewModelModule))
         }
     }
 
-    val viewModelModule = module{
-        viewModel {
-            QuizViewModel(get());
-        }
-    }
 }
