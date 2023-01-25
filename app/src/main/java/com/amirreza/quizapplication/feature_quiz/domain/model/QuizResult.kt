@@ -1,4 +1,4 @@
-package com.amirreza.quizapplication.feature_authentication.data.repository.model
+package com.amirreza.quizapplication.feature_quiz.domain.model
 
 import android.os.Parcelable
 import com.amirreza.quizapplication.feature_authentication.domain.entitiy.TokenHolder

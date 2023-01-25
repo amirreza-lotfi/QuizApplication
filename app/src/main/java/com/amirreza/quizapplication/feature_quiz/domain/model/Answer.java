@@ -1,4 +1,4 @@
-package com.amirreza.quizapplication.feature_authentication.data.repository.model;
+package com.amirreza.quizapplication.feature_quiz.domain.model;
 
 public class Answer {
     public int getQuestionId() {

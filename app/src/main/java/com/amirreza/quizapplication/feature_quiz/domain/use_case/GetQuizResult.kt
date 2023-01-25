@@ -1,7 +1,7 @@
 package com.amirreza.quizapplication.feature_quiz.domain.use_case
 
-import com.amirreza.quizapplication.feature_authentication.data.repository.model.Answer
-import com.amirreza.quizapplication.feature_authentication.data.repository.model.QuizResult
+import com.amirreza.quizapplication.feature_quiz.domain.model.Answer
+import com.amirreza.quizapplication.feature_quiz.domain.model.QuizResult
 import com.amirreza.quizapplication.feature_quiz.domain.repository.QuizRepository
 import io.reactivex.Single
 

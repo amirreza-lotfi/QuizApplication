@@ -1,10 +1,12 @@
 package com.amirreza.quizapplication.util.http
 
-import android.content.SharedPreferences
-import com.amirreza.quizapplication.feature_authentication.data.repository.model.*
 import com.amirreza.quizapplication.feature_authentication.domain.entitiy.TokenHolder
 import com.amirreza.quizapplication.feature_authentication.domain.entitiy.TokenResponse
 import com.amirreza.quizapplication.feature_authentication.domain.entitiy.User
+import com.amirreza.quizapplication.feature_quiz.domain.model.Answer
+import com.amirreza.quizapplication.feature_quiz.domain.model.Question
+import com.amirreza.quizapplication.feature_quiz.domain.model.Quiz
+import com.amirreza.quizapplication.feature_quiz.domain.model.QuizResult
 import com.amirreza.quizapplication.util.Constant
 import io.reactivex.Single
 
@@ -113,7 +115,7 @@ class ApiService {
     fun getExamHistory():Single<List<QuizResult>>{
         val username = TokenHolder.username
         val qList = ArrayList<QuizResult>()
-        for(q:QuizResult in quizResultSimulator){
+        for(q: QuizResult in quizResultSimulator){
             if(q.username == username)
                 qList.add(q)
         }
