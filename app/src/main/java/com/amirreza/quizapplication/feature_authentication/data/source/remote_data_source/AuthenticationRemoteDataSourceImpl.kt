@@ -1,7 +1,8 @@
 package com.amirreza.quizapplication.feature_authentication.data.source.remote_data_source
 
 import com.amirreza.quizapplication.feature_authentication.domain.entitiy.TokenResponse
-import com.amirreza.quizapplication.util.ApiService
+
+import com.amirreza.quizapplication.util.http.ApiService
 import io.reactivex.Single
 
 class AuthenticationRemoteDataSourceImpl(private val apiService: ApiService):AuthenticationRemoteDataSource {

@@ -13,6 +13,6 @@
         app:defaultNavHost="true"
         app:layout_constraintTop_toTopOf="parent"
         app:navGraph="@navigation/navigation"
-        android:layout_height="0dp"/>
+        android:layout_height="match_parent"/>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
