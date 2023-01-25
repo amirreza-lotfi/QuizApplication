@@ -9,32 +9,34 @@
 
     <com.airbnb.lottie.LottieAnimationView
         android:id="@+id/loginAnime"
-        android:layout_width="200dp"
-        android:layout_height="200dp"
+        android:layout_width="300dp"
+        android:layout_height="300dp"
+        app:layout_constraintBottom_toTopOf="@+id/username"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:lottie_autoPlay="true"
         app:lottie_loop="true"
         app:lottie_rawRes="@raw/signup_login"
-        tools:layout_width="20dp"
-        tools:layout_height="20dp"/>
+        tools:layout_height="300dp"
+        tools:layout_width="300dp" />
 
     <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/username"
-        app:boxBackgroundColor="?colorPrimary"
-        android:textColorHint="?colorOnPrimary"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:hint="@string/enter_your_username"
-        app:layout_constraintTop_toBottomOf="@+id/loginAnime"
+        android:textColorHint="?colorOnPrimary"
+        app:boxBackgroundColor="?colorPrimary"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
         tools:layout_editor_absoluteX="16dp">
 
         <com.google.android.material.textfield.TextInputEditText
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:textColor="?colorOnPrimary"
-            tools:text="Amirreza"/>
+            tools:text="Amirreza" />
 
     </com.google.android.material.textfield.TextInputLayout>
 
