@@ -8,10 +8,14 @@ import io.reactivex.Single;
 
 public class QuizRepositoryImpl implements QuizRepository {
 
-    private QuizDataSourceI quizDataSource;
+    private final QuizDataSourceI quizDataSource;
+
+    public QuizRepositoryImpl(QuizDataSourceI quizDataSource){
+        this.quizDataSource = quizDataSource;
+    }
 
     @Override
     public Single<Quiz> getQuizzes() {
-        return null;
+        return quizDataSource.getQuizzes();
     }
 }

@@ -4,11 +4,12 @@ import com.amirreza.quizapplication.feature_quiz.domain.model.Quiz;
 
 import java.util.List;
 
+import io.reactivex.Single;
+
 public class QuizRemoteDataSource implements QuizDataSourceI {
 
-
     @Override
-    public List<Quiz> getQuizzes() {
+    public Single<Quiz> getQuizzes() {
         return null;
     }
 }
