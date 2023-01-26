@@ -50,11 +50,12 @@ public class QuizHistoryAdapter extends RecyclerView.Adapter<QuizHistoryAdapter.
         public void bind(QuizResult quizResult){
             int correct = quizResult.getCorrectAnswer();
             int wrong = quizResult.getWrongAnswer();
-            float score = (float) ((correct*1.0)/(correct+wrong));
+            float score = (float) ((correct*1.0)/(correct+wrong))*100;
+            String scoreToString = String.format("%.02f", score);
 
-            correctValue.setText(correct);
-            wrongValue.setText(wrong);
-            scoreValue.setText(String.valueOf(score));
+            correctValue.setText(String.valueOf(correct));
+            wrongValue.setText(String.valueOf(wrong));
+            scoreValue.setText(scoreToString+"%");
         }
     }
 }

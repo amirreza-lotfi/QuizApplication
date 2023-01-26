@@ -26,7 +26,7 @@ class HistoryFragment : QuizBaseFragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        val layoutManager = LinearLayoutManager(requireContext(), RecyclerView.HORIZONTAL,false)
+        val layoutManager = LinearLayoutManager(requireContext(), RecyclerView.VERTICAL,false)
         val recyclerView = binding.quizHistoryRecyclerView
         recyclerView.layoutManager = layoutManager
 

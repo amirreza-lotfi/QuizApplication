@@ -36,10 +36,11 @@ class ResultFragment : QuizBaseFragment() {
             val correct: Int = it.correctAnswer
             val wrong: Int = it.wrongAnswer
             val score = ((correct * 1.0 / (correct + wrong)).toFloat())*100
+            val scoreToString = String.format("%.1f",score)
 
             binding.correctValue.text = correct.toString()
             binding.wrongValue.text = wrong.toString()
-            binding.scoreValue.text = score.toString() + "%"
+            binding.scoreValue.text = "$scoreToString%"
         }
 
         binding.backToHome.setOnClickListener {
