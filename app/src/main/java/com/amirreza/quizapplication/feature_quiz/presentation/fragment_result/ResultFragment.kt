@@ -6,13 +6,14 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
+import com.amirreza.quizapplication.util.base.QuizBaseFragment
 import com.amirreza.quizeapplication.R
 import com.amirreza.quizeapplication.databinding.FragmentResultBinding
 import org.koin.android.ext.android.inject
 import org.koin.core.parameter.parametersOf
 
 
-class ResultFragment : Fragment() {
+class ResultFragment : QuizBaseFragment() {
     private val viewModel:ResultFragmentViewModel by inject { parametersOf(this.arguments) }
     private lateinit var binding:FragmentResultBinding
 
