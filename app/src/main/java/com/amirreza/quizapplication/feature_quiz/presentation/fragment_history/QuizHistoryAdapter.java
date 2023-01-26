@@ -36,7 +36,7 @@ public class QuizHistoryAdapter extends RecyclerView.Adapter<QuizHistoryAdapter.
         return quizResultList.size();
     }
 
-    private class QuizResultHolder extends RecyclerView.ViewHolder{
+    public class QuizResultHolder extends RecyclerView.ViewHolder{
         private TextView scoreValue;
         private TextView correctValue;
         private TextView wrongValue;
