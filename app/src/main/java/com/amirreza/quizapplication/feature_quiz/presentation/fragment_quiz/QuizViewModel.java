@@ -77,7 +77,6 @@ public class QuizViewModel extends QuizBaseViewModel {
     }
 
     private void saveAnswer() {
-
         _awnsers.getValue()[_indexOfQuestion.getValue()] = new Answer(_currnetquestion.getValue().getQuestionId(),_selectedAnswer.getValue());
     }
 

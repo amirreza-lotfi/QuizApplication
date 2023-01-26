@@ -64,8 +64,7 @@ class QuizFragment : QuizBaseFragment() {
         }
 
         binding.actionButton.setOnClickListener {
-            quizViewModel.onActionButtonClicked();
-
+            quizViewModel.onActionButtonClicked()
         }
     }
 
