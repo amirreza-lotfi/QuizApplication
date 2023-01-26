@@ -3,9 +3,11 @@ package com.amirreza.quizapplication.util.base
 import android.content.Context
 import android.view.LayoutInflater
 import android.view.View
+import android.widget.Toast
 import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.coordinatorlayout.widget.CoordinatorLayout
 import com.amirreza.quizeapplication.R
+import com.google.android.material.snackbar.Snackbar
 
 interface QuizView {
     val rootView: ConstraintLayout?
@@ -21,6 +23,13 @@ interface QuizView {
                     root.addView(loadingView)
                 }
                 loadingView?.visibility = if (mustShow) View.VISIBLE else View.GONE
+            }
+        }
+    }
+    fun showToast(message: String, duration: Int = Snackbar.LENGTH_SHORT) {
+        rootView?.let {
+            viewContext?.let {
+                Toast.makeText(viewContext, message, duration).show()
             }
         }
     }

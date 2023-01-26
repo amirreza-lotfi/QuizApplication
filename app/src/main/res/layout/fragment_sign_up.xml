@@ -33,6 +33,7 @@
         tools:layout_editor_absoluteX="16dp">
 
         <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/username_value"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:textColor="?colorOnPrimary"
@@ -56,6 +57,7 @@
         app:layout_constraintTop_toBottomOf="@+id/username">
 
         <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/password_value"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:textColor="?colorOnPrimary"
