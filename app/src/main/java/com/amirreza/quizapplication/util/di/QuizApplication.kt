@@ -37,32 +37,38 @@ class QuizApplication : Application(){
     override fun onCreate() {
         super.onCreate()
         val module = module {
-            single<QuizDataSourceI>{
-                QuizRemoteDataSource()
-            }
-            single<QuizRepository> {
-                QuizRepositoryImpl(get())
-            }
             single {
                 ApiService()
             }
-            single<AuthenticationRemoteDataSource> {
+            factory<QuizDataSourceI>{
+                QuizRemoteDataSource(get())
+            }
+
+            single<QuizRepository> {
+                QuizRepositoryImpl(get())
+            }
+
+            factory<AuthenticationRemoteDataSource> {
                 AuthenticationRemoteDataSourceImpl(get())
             }
             single<SharedPreferences>{
                 this@QuizApplication.getSharedPreferences("appAuth", MODE_PRIVATE)
             }
-            single<AuthenticationLocalDataSource> {
+            factory<AuthenticationLocalDataSource> {
                 AuthenticationLocalDataSourceImpl(get())
             }
             single<AuthenticationRepository> {
                 AuthenticationRepositoryImpl(get(),get())
             }
             single {
-                QuizUseCase(GetQuizzes(get()), GetQuizResult(get()), GetExamHistory(get()))
+                QuizUseCase(
+                    GetQuizzes(get()),
+                    GetQuizResult(get()),
+                    GetExamHistory(get())
+                )
             }
-            single<AuthUseCases>{
-                AuthUseCases(LoginUseCase((get())), SignUpUseCase(get()))
+            single{
+                AuthUseCases(LoginUseCase(get()), SignUpUseCase(get()))
             }
         }
 

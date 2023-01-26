@@ -41,7 +41,7 @@ class LoginFragment : QuizBaseFragment() {
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribe(object : CompletableObserver{
                     override fun onSubscribe(d: Disposable) {
-                        TODO("Not yet implemented")
+
                     }
 
                     override fun onComplete() {
@@ -55,6 +55,8 @@ class LoginFragment : QuizBaseFragment() {
 
                 })
         }
-        binding.signUpBtn.setOnClickListener { btn: View -> findNavController().navigate(R.id.signUpFragment) }
+        binding.signUpBtn.setOnClickListener {
+            findNavController().navigate(R.id.signUpFragment)
+        }
     }
 }

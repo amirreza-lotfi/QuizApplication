@@ -14,6 +14,10 @@ public class QuizRemoteDataSource implements QuizDataSourceI {
     //It is just for test. in real app, this is retrofit api Service
     private ApiService apiService;
 
+    public QuizRemoteDataSource(ApiService apiService) {
+        this.apiService = apiService;
+    }
+
     @Override
     public Single<Quiz> getQuizzes() {
         return apiService.getQuizzes();

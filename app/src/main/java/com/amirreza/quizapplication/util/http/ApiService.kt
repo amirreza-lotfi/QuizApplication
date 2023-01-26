@@ -12,6 +12,9 @@ import io.reactivex.Single
 
 class ApiService {
 
+    private val userListSimulator = mutableListOf<User>()
+    private val quizResultSimulator = mutableListOf<QuizResult>()
+
     fun login(username: String, password: String): Single<TokenResponse>{
         /*
          * Its Just For Test
@@ -122,6 +125,5 @@ class ApiService {
         return Single.just(qList)
     }
 }
-val userListSimulator = mutableListOf<User>()
-val quizResultSimulator = mutableListOf<QuizResult>()
+
 

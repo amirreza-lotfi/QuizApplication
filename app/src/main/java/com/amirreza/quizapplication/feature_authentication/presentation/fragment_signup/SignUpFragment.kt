@@ -45,7 +45,7 @@ class SignUpFragment : QuizBaseFragment() {
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribe(object : CompletableObserver {
                     override fun onSubscribe(d: Disposable) {
-                        TODO("Not yet implemented")
+
                     }
 
                     override fun onComplete() {
