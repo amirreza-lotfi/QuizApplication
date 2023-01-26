@@ -22,6 +22,7 @@ import com.amirreza.quizapplication.feature_quiz.domain.use_case.GetExamHistory
 import com.amirreza.quizapplication.feature_quiz.domain.use_case.GetQuizResult
 import com.amirreza.quizapplication.feature_quiz.domain.use_case.GetQuizzes
 import com.amirreza.quizapplication.feature_quiz.domain.use_case.QuizUseCase
+import com.amirreza.quizapplication.feature_quiz.presentation.fragment_history.HistoryFragmentViewModel
 import com.amirreza.quizapplication.feature_quiz.presentation.fragment_quiz.QuizViewModel
 import com.amirreza.quizapplication.feature_quiz.presentation.fragment_result.ResultFragmentViewModel
 import com.amirreza.quizapplication.util.http.ApiService
@@ -84,6 +85,9 @@ class QuizApplication : Application(){
             }
             viewModel {
                 SignUpViewModel(get())
+            }
+            viewModel{
+                HistoryFragmentViewModel(get())
             }
         }
         startKoin {

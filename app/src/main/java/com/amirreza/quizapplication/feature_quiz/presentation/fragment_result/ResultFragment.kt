@@ -35,11 +35,11 @@ class ResultFragment : QuizBaseFragment() {
         viewModel.quizResult.observe(viewLifecycleOwner){
             val correct: Int = it.correctAnswer
             val wrong: Int = it.wrongAnswer
-            val score = (correct * 1.0 / (correct + wrong)).toFloat()
+            val score = ((correct * 1.0 / (correct + wrong)).toFloat())*100
 
-            binding.correctValue.setText(correct)
-            binding.wrongValue.setText(wrong)
-            binding.scoreValue.text = score.toString()
+            binding.correctValue.text = correct.toString()
+            binding.wrongValue.text = wrong.toString()
+            binding.scoreValue.text = score.toString() + "%"
         }
 
         binding.backToHome.setOnClickListener {

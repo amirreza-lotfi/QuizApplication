@@ -68,10 +68,10 @@ public class QuizViewModel extends QuizBaseViewModel {
     }
 
     public void onActionButtonClicked() {
+        saveAnswer();
         if (isCurrentQuestionLast()) {
             finishExam();
         } else {
-            saveAnswer();
             showNextQuestion();
         }
     }

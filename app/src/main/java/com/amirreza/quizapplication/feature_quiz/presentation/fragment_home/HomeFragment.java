@@ -32,13 +32,14 @@ public class HomeFragment extends QuizBaseFragment {
         super.onViewCreated(view, savedInstanceState);
 
         checkIsItNeedToNavigateToAuthenticationScreen(view);
+        NavController navController = Navigation.findNavController(view);
 
-        binding.examHistoryBtn.setOnClickListener(view1->{
-            Navigation.findNavController(view).navigate(R.id.action_homeFragment_to_quizFragment);
+        binding.startNewExamBtn.setOnClickListener(view1->{
+            navController.navigate(R.id.action_homeFragment_to_quizFragment);
         });
 
         binding.examHistoryBtn.setOnClickListener(view1 -> {
-            Navigation.findNavController(view).navigate(R.id.action_homeFragment_to_historyFragment);
+            navController.navigate(R.id.action_homeFragment_to_historyFragment);
         });
     }
 
@@ -46,9 +47,7 @@ public class HomeFragment extends QuizBaseFragment {
         NavController navController = Navigation.findNavController(view);
         boolean hasUserLoggedIn = TokenHolder.INSTANCE.isTokenAvailable();
 
-        if(hasUserLoggedIn){
-            navController.navigate(R.id.quizFragment);
-        }else{
+        if(!hasUserLoggedIn){
             navController.navigate(R.id.loginFragment);
         }
     }
