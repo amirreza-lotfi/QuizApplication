@@ -25,8 +25,8 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:hint="@string/enter_your_username"
-        android:textColorHint="?colorOnPrimary"
-        app:boxBackgroundColor="?colorPrimary"
+        app:boxStrokeColor="@color/background_auth_edittext"
+        style="@style/Theme.QuizApplication.AuthActivity.EditText"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         tools:layout_editor_absoluteX="16dp">
@@ -43,15 +43,14 @@
 
     <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/password"
-        app:boxStrokeColor="?colorOnPrimary"
-        app:boxBackgroundColor="?colorPrimary"
         android:layout_marginTop="8dp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:textColorHint="?colorOnPrimary"
         android:hint="Enter your password"
         app:endIconMode="password_toggle"
         app:endIconTint="?colorOnPrimary"
+        app:boxStrokeColor="@color/background_auth_edittext"
+        style="@style/Theme.QuizApplication.AuthActivity.EditText"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/username">
 

@@ -47,7 +47,6 @@ class QuizFragment : QuizBaseFragment() {
 
         quizViewModel.actionButtonText.observe(viewLifecycleOwner){
             binding.actionButton.text = it
-            clearRadioButton()
             setActionButtonDisable()
         }
 
@@ -64,6 +63,7 @@ class QuizFragment : QuizBaseFragment() {
         }
 
         binding.actionButton.setOnClickListener {
+            clearRadioButton()
             quizViewModel.onActionButtonClicked()
         }
     }
@@ -77,6 +77,6 @@ class QuizFragment : QuizBaseFragment() {
     }
 
     private fun clearRadioButton() {
-        binding.radioGroup.clearCheck();
+        binding.radioGroup.clearCheck()
     }
 }

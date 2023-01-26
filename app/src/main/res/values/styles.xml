@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <style name="Theme.QuizApplication.AuthActivity.EditText" parent="Widget.MaterialComponents.TextInputLayout.OutlinedBox">
+<!--        <item name="android:background">@drawable/background_auth_edittext</item>-->
+<!--        <item name="android:textColor">?colorOnPrimary</item>-->
+<!--        <item name="android:textColorHint">?colorOnPrimary</item>-->
+<!--        <item name="android:textSize">16sp</item>-->
+<!--        <item name="android:minHeight">48dp</item>-->
+<!--        <item name="android:paddingEnd">16dp</item>-->
+<!--        <item name="android:paddingStart">16dp</item>-->
+            <item name="android:textColorHint">?colorOnPrimary</item>
+            <item name="hintTextColor">?colorOnPrimary</item>
+    </style>
+</resources>
