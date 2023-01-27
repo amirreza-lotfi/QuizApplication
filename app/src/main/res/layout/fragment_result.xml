@@ -7,11 +7,12 @@
 
 
 
-    <FrameLayout
+    <ImageView
         android:id="@+id/lottieAnimationView2"
         android:layout_width="200dp"
         android:layout_height="200dp"
-        android:layout_marginBottom="8dp"
+        android:layout_marginBottom="16dp"
+        android:src="@drawable/score"
         app:layout_constraintBottom_toTopOf="@+id/score"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"/>

@@ -31,7 +31,12 @@ class HistoryFragment : QuizBaseFragment() {
         recyclerView.layoutManager = layoutManager
 
         viewModel.examHistory.observe(viewLifecycleOwner){
+            setEmptyVisibility(it.size==0)
             recyclerView.adapter = QuizHistoryAdapter(it)
         }
+    }
+
+    fun setEmptyVisibility(isVisible:Boolean){
+        binding.emptyState.visibility = if(isVisible) View.VISIBLE else View.GONE
     }
 }

@@ -63,8 +63,8 @@ class QuizFragment : QuizBaseFragment() {
         }
 
         binding.actionButton.setOnClickListener {
-            clearRadioButton()
             quizViewModel.onActionButtonClicked()
+            clearRadioButton()
         }
     }
 
