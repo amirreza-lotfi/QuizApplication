@@ -34,7 +34,7 @@ class SignUpFragment : QuizBaseFragment() {
         super.onViewCreated(view, savedInstanceState)
 
         binding.logInButton.setOnClickListener {
-            findNavController().navigate(R.id.loginFragment)
+            findNavController().navigate(R.id.action_signUpFragment_to_loginFragment)
         }
         binding.signUpButton.setOnClickListener {
             val username = binding.usernameValue.text.toString()

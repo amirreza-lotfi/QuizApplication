@@ -51,7 +51,6 @@ class QuizFragment : QuizBaseFragment() {
         }
 
         binding.radioGroup.setOnCheckedChangeListener{ radioGroup,_->
-            setActionButtonEnable()
             val answer = when(radioGroup.checkedRadioButtonId){
                 R.id.btn1 -> binding.btn1.text
                 R.id.btn2 -> binding.btn2.text
@@ -59,6 +58,11 @@ class QuizFragment : QuizBaseFragment() {
                 R.id.btn4 -> binding.btn4.text
                 else -> {""}
             }
+            if (answer != "")
+                setActionButtonEnable()
+            else
+                setActionButtonDisable()
+
             quizViewModel.onAnswerSelected(answer.toString())
         }
 
@@ -78,5 +82,9 @@ class QuizFragment : QuizBaseFragment() {
 
     private fun clearRadioButton() {
         binding.radioGroup.clearCheck()
+    }
+
+    override fun onDestroy() {
+        super.onDestroy()
     }
 }

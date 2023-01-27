@@ -37,6 +37,7 @@ public class QuizViewModel extends QuizBaseViewModel {
     private final MutableLiveData<QuizResult> _navigateToResultFragment = new MutableLiveData<>();
     public LiveData<QuizResult> navigateToResultFragment = _navigateToResultFragment;
 
+
     private final MutableLiveData<Answer[]> _awnsers = new MutableLiveData<>();
 
 
@@ -112,6 +113,7 @@ public class QuizViewModel extends QuizBaseViewModel {
                     @Override
                     public void onSuccess(QuizResult quizResult) {
                         _navigateToResultFragment.setValue(quizResult);
+
                         showProgressBar(false);
                     }
 

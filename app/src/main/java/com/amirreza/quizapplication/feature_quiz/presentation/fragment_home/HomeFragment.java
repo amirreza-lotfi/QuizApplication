@@ -48,7 +48,7 @@ public class HomeFragment extends QuizBaseFragment {
         boolean hasUserLoggedIn = TokenHolder.INSTANCE.isTokenAvailable();
 
         if(!hasUserLoggedIn){
-            navController.navigate(R.id.loginFragment);
+            navController.navigate(R.id.action_homeFragment_to_loginFragment);
         }
     }
 }

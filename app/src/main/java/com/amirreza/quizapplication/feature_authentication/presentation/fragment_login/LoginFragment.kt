@@ -56,7 +56,7 @@ class LoginFragment : QuizBaseFragment() {
                 })
         }
         binding.signUpBtn.setOnClickListener {
-            findNavController().navigate(R.id.signUpFragment)
+            findNavController().navigate(R.id.action_loginFragment_to_signUpFragment)
         }
     }
 }
